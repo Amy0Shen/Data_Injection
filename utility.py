@@ -30,7 +30,7 @@ def col_header_val(df,table_config):
     expected_col = list(map(lambda x: x.lower(),  table_config['columns']))
     expected_col.sort()
     df.columns =list(map(lambda x: x.lower(), list(df.columns)))
-    df = df.reindex(sorted(df.columns), axis=1)
+    df = df[sorted(df.columns)]
     if len(df.columns) == len(expected_col) and list(expected_col)  == list(df.columns):
         print("column name and column length validation passed")
         return 1
